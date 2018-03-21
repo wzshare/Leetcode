@@ -5,26 +5,21 @@ using namespace std;
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
+        return isvalidbst(root, NULL, NULL);
+    }
+private:
+    bool isvalidbst(TreeNode* root, TreeNode* min, TreeNode* max) {
         if (!root) return true;
-        bool left = true, right = true;
-        if (root->left) left = root->val > maxLeft(root->left);
-        if (root->right) right = root->val < minRight(root->right);
-        return left && right && isValidBST(root->left) && isValidBST(root->right);
-    }
-private:    
-    int maxLeft(TreeNode* root) {
-        if (root->right) maxLeft(root->right);
-        return root->val;
-    }
-    
-    int minRight(TreeNode* root) {
-        if (root->left) minRight(root->left);
-        return root->val;
+        if ((min && min->val >= root->val) || (max && max->val <= root->val)) 
+            return false;
+        return isvalidbst(root->left, min, root) && isvalidbst(root->right, root, max);
     }
 };
 
+
 /*
  * [10,5,15,null,null,6,20]
+ * return 0
  */ 
 TreeNode* testTree()
 {
