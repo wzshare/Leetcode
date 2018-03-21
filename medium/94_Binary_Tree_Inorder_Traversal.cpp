@@ -17,6 +17,7 @@ public:
 private:
     void traversal(TreeNode* root, vector<int> &vec)
     {
+        if (!root) return;
         if (root->left) traversal(root->left, vec);
         if (root) vec.push_back(root->val);
         if (root->right) traversal(root->right, vec);
