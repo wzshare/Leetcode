@@ -26,7 +26,6 @@ private:
     }
 };
 
-
 /*
  * [10,5,15,null,null,6,20]
  * return 0
