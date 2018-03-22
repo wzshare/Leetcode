@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "ios": "cpp",
-        "algorithm": "cpp",
-        "chrono": "cpp",
-        "limits": "cpp",
-        "ratio": "cpp"
-    }
-}
