@@ -1,5 +1,4 @@
 #include "../libstruct.h"
-#include <vector>
 
 using namespace std;
 
