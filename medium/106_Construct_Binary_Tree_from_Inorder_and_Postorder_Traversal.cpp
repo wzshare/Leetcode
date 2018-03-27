@@ -3,7 +3,7 @@
 using namespace std;
 
 /*
- * NO.105
+ * NO.106
  * Given inorder and postorder traversal of a tree, construct the binary tree.
  */
 
