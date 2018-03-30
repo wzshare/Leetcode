@@ -3,21 +3,20 @@
 using namespace std;
 
 /*
- * NO.235
- * Given a binary search tree (BST), find the lowest common ancestor (LCA) 
- * of two given nodes in the BST.
+ * NO.236
+ * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
  */
 
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        if(p->val < root->val && q->val < root->val)
-            return lowestCommonAncestor(root->left, p, q);
-        else if(p->val > root->val && q->val > root->val)
-            return lowestCommonAncestor(root->right, p, q);
-        else
+        if (!root || root == p || q == root) return root;
+        TreeNode* left = lowestCommonAncestor(root->left, p, q);
+        TreeNode* right = lowestCommonAncestor(root->right, p, q);
+        if (left && right)
             return root;
-        
+        else
+            return left ? left : right;
     }
 };
 
@@ -39,8 +38,9 @@ TreeNode* testTree()
 int main(int argc, char const *argv[])
 {
     Solution solution;
-    TreeNode *p = new TreeNode(5), *q = new TreeNode(15);
-    TreeNode *ancestor = solution.lowestCommonAncestor(testTree(), p, q);
+    TreeNode *root = testTree();
+    TreeNode *p = root->left->left, *q = root->right;
+    TreeNode *ancestor = solution.lowestCommonAncestor(root, p, q);
     cout << ancestor->val << endl;
     return 0;
 }
