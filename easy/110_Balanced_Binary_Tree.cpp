@@ -25,7 +25,7 @@ private:
         if(root == NULL) return 0;
         int left = depth(root->left);
         int right = depth(root->right);
-        if(left - right > 1 || right - left > 1)
+        if(abs(left - right) > 1)
             balance = false;
         return left > right ? left + 1 : right + 1;
     }
