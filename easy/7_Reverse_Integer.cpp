@@ -9,19 +9,18 @@ using namespace std;
 
 class Solution {
 public:
-    int reverse(int x) {
-        int sign = x > 0 ? 1 : -1;
-        x = abs(x);
-         
+    int reverse(int x) {    
         int ret = 0;
         while(x)
         {
-            int digit = x % 10;
-            ret = ret * 10 + digit;
+            int temp = ret * 10 + x % 10;
+            if (temp / 10 != ret)
+                return 0;
+            ret = temp;
             x /= 10;
         }
          
-        return ret * sign;
+        return ret;
     }
 };
 
