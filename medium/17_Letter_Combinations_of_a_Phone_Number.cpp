@@ -11,32 +11,28 @@ using namespace std;
 
 class Solution {
 public:
-/*
     vector<string> letterCombinations(string digits) {
         vector<string> result;
-        if(digits.empty())
+        if (digits.empty())
             return result;
-        string buttons[] = {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        vector<string> phone = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         result.push_back("");
-        for(int i = 0; i < digits.size(); ++i)
-        {
+        for (int i = 0; i < digits.length(); i++) {
+            string num = phone[digits[i] - '0'];
             vector<string> temp;
-            string ch = buttons[digits[i] - '0'];
-            for(int j = 0; j < ch.size(); ++j)
-                for(int k = 0; k < result.size(); ++k)
-                    temp.push_back(result[k] + ch[j]);
+            for (int j = 0; j < result.size(); j++) 
+                for (int k = 0; k < num.length(); k++)
+                    temp.push_back(result[j]+num[k]);
             result = temp;
         }
         return result;
     }
-*/
+
     /* BackTracking */
-    vector<string> letterCombinations(string digits){
+/*    vector<string> letterCombinations(string digits){
         vector<string> result;
-        
         if(digits.empty())
             return result;
-
         string buttons[] = {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         vector<string> temp = letterCombinations(digits.substr(1));
         string ch = buttons[digits[0] - '0'];
@@ -50,6 +46,7 @@ public:
         }
         return result;
     }
+*/
 };
 
 /*
@@ -59,5 +56,8 @@ public:
 int main(int argc, char const *argv[])
 {
     Solution solution;
+    vector<string> vec = solution.letterCombinations("23");
+    for (auto v : vec) cout << v << " ";
+    cout << endl;
     return 0;
 }
