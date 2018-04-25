@@ -2,7 +2,8 @@
 
 using namespace std;
 
-/* NO.61
+/* 
+ * NO.61
  * Given a linked list, rotate the list to the right by k places, where k is non-negative.
  */
 
