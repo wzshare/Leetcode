@@ -2,8 +2,10 @@
 
 using namespace std;
 
-/* NO.62
- * A robot is located at the top-left corner of a m x n grid 
+/* 
+ * NO.63
+ * An obstacle and empty space is marked as 1 and 0 respectively in the grid.
+ */
 
 class Solution {
 public:
