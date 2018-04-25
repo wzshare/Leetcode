@@ -2,7 +2,8 @@
 
 using namespace std;
 
-/* NO.56
+/* 
+ * NO.56
  * Given a collection of intervals, merge all overlapping intervals.
  */
 class Solution {
