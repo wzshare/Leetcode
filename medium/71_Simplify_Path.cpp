@@ -10,16 +10,13 @@ public:
         for(int i = 0; i < path.length(); i++) {
             string temp;
             while(i < path.length() && path[i] != '/') temp += path[i++];
-            if (temp == "..") {
-                if (!st.empty()) st.pop();
-            }
+            if (temp == "..") st.empty() ? void() : st.pop();
             else if (temp != "." && !temp.empty()) st.push(temp);
         }
         if (st.empty()) result = "/";
         while (!st.empty()) {
-            string t = st.top();
+            result = "/" + st.top() + result;
             st.pop();
-            result = "/" + t + result;
         }
         return result;
     }
