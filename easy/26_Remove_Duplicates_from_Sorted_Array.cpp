@@ -16,7 +16,7 @@ public:
         int a = 0, b = a;
         while (b < nums.size()) {
             while (b < nums.size() && nums[a] == nums[b]) b++;
-            if (++a < nums.size()) nums[a] = nums[b];
+            if (++a < nums.size() && b < nums.size()) nums[a] = nums[b];
         }
         return a;
     }
