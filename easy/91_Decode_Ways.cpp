@@ -17,18 +17,14 @@ using namespace std;
 class Solution {
 public:
     int numDecodings(string s) {
-        int num[s.size()+1];
-        if(s == "0")
-            return 0;
-        if(s.size() == 1)
-            return 1;
-        num[0] = 1;
-        num[1] = (s[0] == '0')? 0 : 1;
-        for(int i = 1; i < s.size() ; ++i){
-            num[i+1] = (s[i] == '0')? 0 : num[i];
-            num[i+1] += ((s[i-1]=='1') || ( s[i-1] == '2' && s[i] < '7')) ? num[i-1] : 0;
+        vector<int> res(s.size() + 1, 1);
+        if (s.empty()) return 0;
+        res[1] = s[0] == '0' ? 0 : 1;
+        for (int i = 1; i < s.size(); i++) {
+            res[i+1] = s[i] == '0' ? 0 : res[i];
+            res[i+1] += (s[i-1] == '1' || (s[i-1] == '2' && s[i] < '7')) ? res[i-1] : 0;
         }
-        return num[s.size()];
+        return res[s.size()];
     }
 };
 
