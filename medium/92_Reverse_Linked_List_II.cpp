@@ -33,6 +33,6 @@ int main(int argc, char const *argv[])
 {
     Solution solution;
     ListNode *head = test();
-    // solution.reverseBetween(head, 2, 4);
+    solution.reverseBetween(head, 2, 4);
     return 0;
 }
