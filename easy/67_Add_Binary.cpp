@@ -1,4 +1,4 @@
-#include <iostream>
+#include "../libstruct.h"
 
 using namespace std;
 

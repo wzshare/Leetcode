@@ -1,4 +1,3 @@
-#include <iostream>
 #include "../libstruct.h"
 
 using namespace std;
@@ -33,5 +32,6 @@ public:
 int main(int argc, char const *argv[])
 {
     Solution solution;
+    cout << solution.minDepth(NULL) << endl;
     return 0;
 }
