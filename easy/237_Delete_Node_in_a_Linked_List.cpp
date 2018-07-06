@@ -13,6 +13,13 @@ public:
     void deleteNode(ListNode* node) {
         *node = *node->next;
     }
+
+    // better properly delete the next node:
+    void deleteNode1(ListNode* node) {
+        auto next = node->next;
+        *node = *next;
+        delete next;
+    }
 };
 
 int main(int argc, char const *argv[])
