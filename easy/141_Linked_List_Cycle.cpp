@@ -4,7 +4,7 @@ using namespace std;
 
 /*
  * NO.141
- * Given a linked list, determine if it has a cycle in it.
+ * Given a linked list, determine if it has a cycle in it. 
  */
 
 class Solution {
