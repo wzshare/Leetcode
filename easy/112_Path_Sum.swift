@@ -26,11 +26,13 @@ public class TreeNode {
 
 class Solution {
     func hasPathSum(_ root: TreeNode?, _ sum: Int) -> Bool {
-        let val = root?.val
-        if root?.left == nil && root?.right == nil {
-            return sum == val
+        guard let root = root else {
+            return false
         }
-        return hasPathSum(root?.left, sum - val!) ||
-            hasPathSum(root?.right, sum - val!)
+        if root.left == nil && root.right == nil {
+            return sum == root.val
+        }
+        return hasPathSum(root.left, sum - root.val) ||
+            hasPathSum(root.right, sum - root.val)
     }
 }
