@@ -33,7 +33,7 @@ class Solution {
             return 0
         }
         let left = helper(root.left), right = helper(root.right)
-        if left == -1 && right == -1 {
+        if left == -1 || right == -1 {
             return -1
         }
         if abs(left - right) > 1 {
