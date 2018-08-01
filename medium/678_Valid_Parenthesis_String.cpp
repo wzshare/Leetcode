@@ -5,31 +5,26 @@ using namespace std;
 class Solution {
 public:
     bool checkValidString(string s) {
-        stack<char> st, star;
+        int a = 0, b = 0;
         for (char c : s) {
             if (c == '(') {
-                if (st.empty()) {
-                    while (!star.empty()) star.pop();
-                }
-                st.push(c);
-            }
-            else if (c == '*') {
-                star.push(c);
-            }
-            else if (st.empty()) {
-                if (star.empty()) return false;
-                else star.pop();
+                a++;
+                b++;
+            } else if (c == ')') {
+                a--;
+                b--;
             } else {
-                st.pop();
+                a--;
+                b++;
             }
+            a = max(0, a);
+            if (b < 0) return false;
         }
-        return st.size() <= star.size();
+        return a == 0; 
     }
 };
 
 int main(int argc, char const *argv[])
 {
-    Solution solution;
-    cout << solution.checkValidString("(())(())(((()*()()()))()((()()(*()())))(((*)()") << endl;
     return 0;
 }
