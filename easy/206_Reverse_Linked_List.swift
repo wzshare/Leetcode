@@ -27,6 +27,7 @@ class Solution {
         }
         return node
     }
+    
     func reverseList1(_ head: ListNode?) -> ListNode? {
         var pre: ListNode? = nil, node = head
         while node != nil {
@@ -36,6 +37,17 @@ class Solution {
             node = next
         }
         return pre
+    }
+    
+    func reverseList2(_ head: ListNode?) -> ListNode? {
+        var p = head, q = ListNode(0)
+        while p != nil {
+            let node = p
+            p = p?.next
+            node?.next = q.next
+            q.next = node
+        }
+        return q.next
     }
 }
 
